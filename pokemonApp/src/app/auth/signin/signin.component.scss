@@ -1,0 +1,67 @@
+.mat-form-field-label {
+    /*change color of label*/
+    color: black !important;
+    background-color: #3D7DCA !important;
+    font-family: cursive !important;
+}
+
+.mat-form-field-appearance-outline .mat-form-field-outline {
+    /*change color of underline*/
+    color: #003A70 !important;
+} 
+
+.mat-form-field-ripple {
+    /*change color of underline when focused*/
+    background-color: #003A70 !important;
+    color: #003A70 !important;
+}
+
+.mat-input-element {
+    color: black !important;
+    caret-color: black !important;
+}
+
+.formButton {
+    background-color: #003A70;
+    color: #FFCB05 !important;
+}
+
+
+h1{
+    color: black;
+}
+
+.loginCont {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    color: black;
+    height: 100%;
+    justify-content: center;
+}
+
+.loginForms {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.text{
+    font-size: 15px;
+    color: black;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.text:hover{
+    color: rgb(66, 74, 88);
+}
+
+.bas {
+    height: 125px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    margin-top: 2%;
+}

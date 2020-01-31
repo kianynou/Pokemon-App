@@ -1,0 +1,70 @@
+<div class="createTeamCont">
+    <h1>Créer votre équipe</h1>
+    <form class="teamForm" [formGroup]="teamForm" (ngSubmit)="addTeam()">
+
+        <mat-form-field class="example" appearance="outline" >
+            <mat-label>Nom de l'équipe</mat-label>
+            <input matInput formControlName="teamName" />
+        </mat-form-field>
+
+        <div class="pokemon">
+            <mat-form-field class="example" appearance="outline">
+                <mat-label>Pokémon 1</mat-label>
+                <mat-select formControlName="pokemon1">
+                    <mat-option *ngFor="let pokemon of pokemons"  [value]="pokemon.id" class="pokemon" >
+                        {{pokemon.name}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field class="example" appearance="outline">
+                <mat-label>Pokémon 2</mat-label>
+                <mat-select formControlName="pokemon2">
+                    <mat-option *ngFor="let pokemon of pokemons" [disabled]="pokemon.id === pokemon1" [value]="pokemon.id" class="pokemon" >
+                        {{pokemon.name}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field class="example" appearance="outline">
+                <mat-label>Pokémon 3</mat-label>
+                <mat-select formControlName="pokemon3" (click)="onChange()">
+                    <mat-option *ngFor="let pokemon of pokemons"  [value]="pokemon.id" class="pokemon" >
+                        {{pokemon.name}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+
+        <div class="pokemon">
+            <mat-form-field class="example" appearance="outline">
+                <mat-label>Pokémon 4</mat-label>
+                <mat-select formControlName="pokemon4">
+                    <mat-option *ngFor="let pokemon of pokemons"  [value]="pokemon.id" class="pokemon" >
+                        {{pokemon.name}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>  
+
+            <mat-form-field class="example" appearance="outline">
+                <mat-label>Pokémon 5</mat-label>
+                <mat-select formControlName="pokemon5">
+                    <mat-option *ngFor="let pokemon of pokemons" [value]="pokemon.id" class="pokemon" >
+                        {{pokemon.name}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>    
+
+            <mat-form-field class="example" appearance="outline">
+                <mat-label>Pokémon 6</mat-label>
+                <mat-select formControlName="pokemon6">
+                    <mat-option *ngFor="let pokemon of pokemons" [value]="pokemon.id" class="pokemon" >
+                        {{pokemon.name}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>    
+        </div>
+    
+        <button mat-flat-button class="formButton">Apply</button>
+    </form>
+</div>

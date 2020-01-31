@@ -1,0 +1,20 @@
+<div class="pokemonListContainer">
+
+    <div class="category">
+        <div>Numéro</div>
+        <div>Nom</div>
+    </div>
+
+    <div *ngFor="let pokemon of pokemons" class="list" >
+        <div class="id">{{pokemon.number}}</div>
+        <div class="name" (click)="onPokemonClick(pokemon)">{{pokemon.name}}</div>
+    </div>
+
+    <!-- <mat-paginator
+        [length]="964"
+        [pageSize]="20" 
+        [hidePageSize]="true" 
+        (page)="pageEvent = getOffset($event)">
+    </mat-paginator> -->
+    
+</div>

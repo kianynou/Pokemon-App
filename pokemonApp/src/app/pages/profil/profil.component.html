@@ -1,0 +1,40 @@
+<div class="profilCont">
+    <div class="data">
+        <img src="http://localhost:3000/uploads/1.png">
+        <div class="texte">
+            <p>Nom d'utilisateur : {{connectedUser.username}}</p>
+            <p>Adresse email : {{connectedUser.email}}</p>
+            <p>Mot de passe : {{connectedUser.password}}</p>
+        </div>
+    </div>
+
+    <div class="line"></div>
+
+    <div class="teams">
+        <h2>Liste de tes équipes : </h2>
+
+        <div class="allTeam">
+
+            <div class="category">
+                <div class="truc">Nom</div>
+                <div class="truc">Supprimer</div>
+                <div class="truc">Pokemon 1</div>
+                <div class="truc">Pokemon 2</div>
+                <div class="truc">Pokemon 3</div>
+                <div class="truc">Pokemon 4</div>
+                <div class="truc">Pokemon 5</div>
+                <div class="truc">Pokemon 6</div>
+            </div>
+            <div class="allteams" *ngFor="let team of teams">
+                <div class="truc">{{ team.name }}</div>
+                <button class="truc" mat-raised-button color="warn" mat-mini-fab (click)="deleteTeam(team)">X</button>
+                <div class="truc">{{ team.pokemon1 }}</div>
+                <div class="truc">{{ team.pokemon2 }}</div>
+                <div class="truc">{{ team.pokemon3 }}</div>
+                <div class="truc">{{ team.pokemon4 }}</div>
+                <div class="truc">{{ team.pokemon5 }}</div>
+                <div class="truc">{{ team.pokemon6 }}</div>
+            </div>
+        </div>
+    </div>
+</div>

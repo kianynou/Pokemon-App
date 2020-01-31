@@ -1,0 +1,47 @@
+h1{
+    color: #FFCB05;
+    font-size: 25px;
+    display: flex;
+    justify-content: center;
+}
+
+.formulaire {
+    width: 65%;
+    display: flex;
+    justify-content: space-around;
+    margin: auto;
+    align-items: center;
+}
+
+.mat-form-field-label {
+/*change color of label*/
+    color: #FFCB05 !important;
+    background-color: #3D7DCA !important;
+    font-family: cursive !important;
+}
+
+.mat-form-field-underline {
+/*change color of underline*/
+    background-color: #FFCB05 !important;
+    color: #FFCB05 !important;
+} 
+
+.mat-form-field-ripple {
+/*change color of underline when focused*/
+    background-color: #FFCB05 !important;
+    color: #FFCB05 !important;
+}
+
+.mat-input-element {
+    color: #FFCB05 !important;
+}
+
+.formButton {
+    background-color: #003A70;
+    color: #FFCB05 !important;
+}
+
+.mat-flat-button {
+    font-family: cursive !important;
+    font-weight: bold;
+}

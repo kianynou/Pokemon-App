@@ -1,0 +1,24 @@
+.container {
+    border: 5px solid grey;
+    border-radius: 25px;
+    background-color: lightgray;
+}
+
+.name {
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    text-transform: capitalize;
+}
+
+.allImage {
+    width: 25%;
+    height: 25%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.image {
+    width: 50%;
+    height: 50%;
+}

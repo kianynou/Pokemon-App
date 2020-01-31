@@ -1,0 +1,43 @@
+<div class="searchCont">
+
+    <form class="formulaire">
+        <mat-form-field class="example" appearance="outline">
+            <mat-label>Nom de l'équipe</mat-label>
+            <input matInput />
+        </mat-form-field>
+        <mat-form-field class="example" appearance="outline">
+            <mat-label>Nom du créateur</mat-label>
+            <input matInput />
+        </mat-form-field>
+        
+        <div class="allButton">
+            <button mat-flat-button class="formButton">Chercher</button>
+            <button mat-flat-button class="formButton" routerLink="/create-team">Créer</button>
+        </div>
+    </form>
+
+    <div class="allTeams">
+
+        <div class="category">
+            <div class="truc">Nom</div>
+            <div class="truc">Auteur</div>
+            <div class="truc">Pokemon 1</div>
+            <div class="truc">Pokemon 2</div>
+            <div class="truc">Pokemon 3</div>
+            <div class="truc">Pokemon 4</div>
+            <div class="truc">Pokemon 5</div>
+            <div class="truc">Pokemon 6</div>
+        </div>
+    
+        <div class="teams" *ngFor="let team of teams">
+            <div class="truc">{{ team.name }}</div>
+            <div class="truc">{{team.username}}</div>
+            <div class="truc">{{ team.pokemon1 }}</div>     
+            <div class="truc">{{ team.pokemon2 }}</div>
+            <div class="truc">{{ team.pokemon3 }}</div>
+            <div class="truc">{{ team.pokemon4 }}</div>
+            <div class="truc">{{ team.pokemon5 }}</div>
+            <div class="truc">{{ team.pokemon6 }}</div>
+        </div>
+    </div>
+</div>

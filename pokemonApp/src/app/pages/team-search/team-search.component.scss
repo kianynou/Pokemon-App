@@ -1,0 +1,85 @@
+.mat-form-field-appearance-outline .mat-form-field-outline {
+/*change color of underline*/
+    background-color: #3D7DCA !important;
+    color: #003A70 !important;
+} 
+
+.mat-form-field-ripple {
+/*change color of underline when focused*/
+    background-color: #003A70 !important;
+    color: #003A70 !important;
+}
+
+.mat-input-element {
+    color: black !important;
+    caret-color: black !important;
+}
+
+.mat-form-field-label {
+    /*change color of label*/
+    color: black !important;
+    background-color: #3D7DCA !important;
+    font-family: cursive !important;
+}
+
+.formButton {
+    background-color: #003A70;
+    color: #FFCB05 !important;
+    width: 150px;
+}
+
+.mat-flat-button {
+    font-family: cursive !important;
+    font-weight: bold;
+}
+
+.mat-form-field-wrapper {
+    padding-bottom: 0;
+}
+
+.searchCont{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.formulaire {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.category {
+    display: flex;
+    justify-content: space-around;
+    height: 35px;
+    align-items: center;
+    font-weight: bold;
+}
+
+.list{
+    display: flex;
+    justify-content: space-around;
+    border-top: 5px solid grey;
+    align-items: center;
+}
+
+.allTeams{
+    background-color: lightgrey;
+    border-radius: 25px;
+    margin-top: 25px;    
+}
+
+.teams{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 15px;
+}
+
+.truc{
+    width: 16%;
+    justify-content: center;
+    display: flex;
+    text-transform: capitalize;
+}

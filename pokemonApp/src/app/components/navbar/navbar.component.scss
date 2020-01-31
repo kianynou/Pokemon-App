@@ -1,0 +1,64 @@
+.logo {
+    display: flex;
+    justify-content: center;
+    background-color: #3D7DCA;
+    background-image: url(http://www.coque-avec-photo.com/img/cms/banniere-pokemon.png);
+}
+
+.navbar {
+    background-color: #003A70;
+    justify-content: space-between;
+    color: #FFCB05;
+}
+
+.menu {
+    display: flex;
+}
+
+.bouton {
+    margin: 15px;
+    height: 64px;
+}
+
+.altMenu {
+    background-color: #003A70;
+}
+
+.mat-menu-content{
+    background-color: #003A70 !important;
+    color: #FFCB05 !important;
+}
+
+.mat-menu-item {
+    color: #FFCB05 !important;
+}
+
+.mat-button {
+    font-family: cursive !important;
+    font-weight: bold;
+}
+
+@media (max-width: 750px){
+    .desktopVersion{
+        display: none;
+    }
+
+    .mobileVersion{
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .logoMobile{
+        width: 100%;
+        text-align: center;
+    }
+
+    nav{
+        background-color: #003A70;
+    }
+};
+@media (min-width: 750px){
+    .mobileVersion, .menuIcon{
+        display: none;
+    }
+}

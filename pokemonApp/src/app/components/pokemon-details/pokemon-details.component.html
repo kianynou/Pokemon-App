@@ -1,0 +1,18 @@
+<div *ngIf="detailedPokemon" class="container">
+    <div class="name">{{ (detailedPokemon.pokemon | async)?.name }}</div>
+    <div class="allImage">
+        <img class="image" [src]="(detailedPokemon.pokemon | async)?.sprites.front_default" />
+        <img class="image" [src]="(detailedPokemon.pokemon | async)?.sprites.back_default" />
+        <img class="image" [src]="(detailedPokemon.pokemon | async)?.sprites.front_shiny" />
+        <img class="image" [src]="(detailedPokemon.pokemon | async)?.sprites.back_shiny" />
+    </div>
+    <div> Abilities :
+        <div>{{(detailedPokemon.pokemon | async)?.abilities[0].ability.name}}</div>
+        <div>{{(detailedPokemon.pokemon | async)?.abilities[1]?.ability.name}}</div>
+        <div>{{(detailedPokemon.pokemon | async)?.abilities[2]?.ability.name}}</div>
+        <div>{{(detailedPokemon.pokemon | async)?.abilities[3]?.ability.name}}</div>
+    </div>
+    <div> Moves :
+        <div>{{(detailedPokemon.pokemon | async)?.moves[0].move.name}}</div>
+    </div>
+</div>

@@ -1,0 +1,56 @@
+.container {
+    background-color: lightgrey;
+    border: 5px solid grey;
+    border-radius: 25px;
+}
+
+.category {
+    display: flex;
+    justify-content: space-around;
+    height: 35px;
+    align-items: center;
+    font-weight: bold;
+}
+
+.list{
+    display: flex;
+    justify-content: space-around;
+    border-top: 5px solid grey;
+    align-items: center;
+}
+
+.id{
+    width: 20%;
+    justify-content: center;
+    display: flex;
+}
+
+.type{
+    width: 20%;
+    justify-content: center;
+    display: flex;
+    text-transform: capitalize;
+}
+
+.name{
+    width: 20%;
+    justify-content: center;
+    display: flex;
+    text-transform: capitalize;
+    cursor: pointer;
+}
+
+.name:hover {
+    color: grey;
+}
+
+.image{
+    width: 20%;
+    justify-content: center;
+    display: flex;
+    cursor: pointer;
+}
+
+.mat-paginator-range-label {
+    display: none;
+}

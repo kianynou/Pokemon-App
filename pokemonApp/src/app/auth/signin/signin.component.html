@@ -1,0 +1,24 @@
+<div class="loginCont">
+    <h1>Se connecter</h1>
+    <form [formGroup]="loginForm" class="loginForms" (ngSubmit)="login()">
+
+        <mat-form-field appearance="outline">
+            <mat-label>Email</mat-label>
+            <input matInput formControlName="email" required/>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Mot de passe</mat-label>
+            <input matInput formControlName="password" type="password" required/>
+        </mat-form-field>   
+        
+        <mat-checkbox [checked]="false" >Se souvenir de moi</mat-checkbox>
+
+        <div class="bas">          
+            <button class="formButton" mat-button type="submit">Se connecter</button>
+            <div class="text">Mot de passe oubié ?</div>
+            <button class="formButton" mat-button routerLink="/auth/signup">S'inscrire</button>
+        </div> 
+        
+    </form>
+</div>

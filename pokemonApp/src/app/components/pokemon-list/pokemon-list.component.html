@@ -1,0 +1,27 @@
+<div class="container">
+
+    <div class="category">
+        <div>Number</div>
+        <div>Image</div>
+        <div>Name</div>
+        <div>Type</div>
+    </div>
+
+    <div *ngFor="let m of pokemons" class="list" >
+        <div class="id">{{(m.pokemon | async)?.id}}</div>
+        <div class="image" (click)="onPokemonClick(m).pokemon">
+            <img  src="{{(m.pokemon | async)?.sprites.front_default}}" />
+        </div>
+        <div class="name" (click)="onPokemonClick(m).pokemon">{{m.name}}</div>
+        <div class="type" >{{(m.pokemon | async)?.types[0].type.name}}<br/>
+        {{(m.pokemon | async)?.types[1]?.type.name}}</div>
+    </div>
+
+    <mat-paginator
+        [length]="964"
+        [pageSize]="20" 
+        [hidePageSize]="true" 
+        (page)="pageEvent = getOffset($event)">
+    </mat-paginator>
+    
+</div>

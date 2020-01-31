@@ -1,0 +1,26 @@
+<div class="createCont">
+    <h1>Créer un Pokemon</h1>
+    <form [formGroup]="pokemonForm" class="pokeForm" (ngSubmit)="addPokemon()">
+
+        <mat-form-field appearance="outline">
+            <mat-label>Numéro</mat-label>
+            <input matInput formControlName="number" required/>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Nom</mat-label>
+            <input matInput formControlName="name" required/>
+        </mat-form-field>   
+
+        <div class="align">
+            <label>Image : </label><br/>
+            <input type="file" (change)="onFileSelect($event)"/>
+        </div><br/>
+
+        <div class="bas">          
+            <button class="formButton" mat-button type="submit">Créer</button>
+            <button class="formButton" mat-button routerLink="/pokemon/pokedex">Retour</button>
+        </div> 
+        
+    </form>
+</div>

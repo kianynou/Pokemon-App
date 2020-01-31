@@ -1,0 +1,37 @@
+
+<form class="formulaire">
+    <mat-form-field class="example">
+            <mat-select placeholder="Type">
+                <mat-option *ngFor="let type of types" [value]="type.name" class="type" >
+                    {{type.name}}
+                </mat-option>
+            </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="example">
+        <mat-select placeholder="Generation">
+            <mat-option value ="1st Gen" >1st Gen</mat-option>
+            <mat-option value ="2nd Gen" >2nd Gen</mat-option>
+            <mat-option value ="3rd Gen" >3rd Gen</mat-option>
+            <mat-option value ="4th Gen" >4th Gen</mat-option>
+            <mat-option value ="5th Gen" >5th Gen</mat-option>
+            <mat-option value ="6th Gen" >6th Gen</mat-option>
+            <mat-option value ="7th Gen" >7th Gen</mat-option>
+            <mat-option value ="8th Gen" >8th Gen</mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="example">
+        <input matInput placeholder="Search" />
+    </mat-form-field>
+
+    <button mat-flat-button class="formButton">Apply</button>
+</form>
+<div class="content">
+    <app-pokemon-list class="pokedex"
+        [pokemons]="(pokemons | async)?.sprites?.front_default"
+        (pokemonClick)="onPokemonSelect($event)">
+    </app-pokemon-list>
+    <app-pokemon-details class="details" [detailedPokemon] = "pokemonDetail"></app-pokemon-details>
+</div>
+

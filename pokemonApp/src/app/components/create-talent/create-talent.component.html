@@ -1,0 +1,19 @@
+<h1>Ajouter un talent à la liste</h1>
+
+<form [formGroup]="talentForm" (ngSubmit)="addTalent()" class="formulaire">
+    <mat-form-field class="name">
+        <mat-label>Nom</mat-label>
+        <input matInput formControlName="name">
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Description</mat-label>
+        <textarea matInput formControlName="description"></textarea>
+    </mat-form-field>
+
+    <button mat-button type="submit" class="formButton">Envoyer</button>
+</form>
+
+<div *ngFor="let t of talentList">
+    {{t.name}}
+</div>

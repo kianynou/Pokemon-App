@@ -1,0 +1,6 @@
+<div *ngIf="detailedPokemon" class="detailContainer">
+    <div class="name">{{ (detailedPokemon)?.name }}</div>
+    <div class="allImage">
+        <img class="image" src="http://localhost:3000/uploads/{{(detailedPokemon)?.image}}" />
+    </div>
+</div>

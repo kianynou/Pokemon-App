@@ -1,0 +1,16 @@
+<form class="formulaire">
+    <mat-form-field class="example" appearance="outline">
+        <mat-label>Nom du Pokemon</mat-label>
+        <input matInput />
+    </mat-form-field>
+
+    <button mat-flat-button class="formButton">Chercher</button>
+    <button mat-flat-button class="formButton" routerLink="/pokemon/créer">Créer</button>
+</form>
+<div class="content">
+    <app-pokemon-list class="pokedex"
+        [pokemons]="(pokemons | async)?.name"
+        (pokemonClick)="onPokemonSelect($event)">
+    </app-pokemon-list>
+    <app-pokemon-details class="details" [detailedPokemon] = "pokemonDetail"></app-pokemon-details>
+</div>
