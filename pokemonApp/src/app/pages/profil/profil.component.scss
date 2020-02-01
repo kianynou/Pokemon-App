@@ -50,9 +50,9 @@ p::first-letter {
     align-items: center;
     font-weight: bold;
 }
+
 .allTeam{
     background-color: lightgrey;
-    border-radius: 25px;
     margin-top: 25px;   
     width: 80%; 
 }
@@ -68,5 +68,38 @@ p::first-letter {
     width: 12%;
     justify-content: center;
     display: flex;
-    text-transform: capitalize;
+}
+
+
+@media (max-width: 750px){
+    .desktopVersion{
+        display: none;
+    }
+
+    .allTeams{
+        background-color: lightgrey;
+        margin-top: 25px;   
+        width: 80%; 
+        color: black;
+        display: flex;
+        justify-content: space-around;
+        flex-direction: column;
+    }
+
+    .category{
+        width: 100%;
+    }
+
+    .allteams{
+        width: 100%;
+    }
+
+    .truc{
+        width: 33%;
+    }
+};
+@media (min-width: 750px){
+    .mobileVersion, .menuIcon{
+        display: none;
+    }
 }

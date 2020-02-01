@@ -64,3 +64,11 @@
 .formButton{
     width: 150px;
 }
+
+@media (max-width: 750px){
+    .pokemon{
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+    }
+}

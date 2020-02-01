@@ -32,7 +32,7 @@ export class AuthService {
   logout(){
     localStorage.removeItem('token');
     localStorage.removeItem('email');
-    this.router.navigateByUrl('/login');
+    this.router.navigateByUrl('/auth/signin');
   }
 
   getToken(): string {

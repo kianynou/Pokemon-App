@@ -107,5 +107,16 @@ export const TeamsController = (app: Application) => {
     })
   });
 
+  router.delete('/:name', (req: Request, res: Response) => {
+    const name = req.params.name;
+
+    teamsService.deleteByAdmin(name).then(result => {
+      res.send();
+    })
+    .catch(err => {
+      console.log(err);
+    })
+  });
+
   app.use('/teams', router);
 };

@@ -8,10 +8,10 @@
         </mat-form-field>
 
         <div class="pokemon">
-            <mat-form-field class="example" appearance="outline">
+            <mat-form-field class="example" appearance="outline" >
                 <mat-label>Pokémon 1</mat-label>
                 <mat-select formControlName="pokemon1">
-                    <mat-option *ngFor="let pokemon of pokemons"  [value]="pokemon.id" class="pokemon" >
+                    <mat-option *ngFor="let pokemon of getPokemons1()"  [value]="pokemon.id" class="pokemon" >
                         {{pokemon.name}}
                     </mat-option>
                 </mat-select>
@@ -20,7 +20,7 @@
             <mat-form-field class="example" appearance="outline">
                 <mat-label>Pokémon 2</mat-label>
                 <mat-select formControlName="pokemon2">
-                    <mat-option *ngFor="let pokemon of pokemons" [disabled]="pokemon.id === pokemon1" [value]="pokemon.id" class="pokemon" >
+                    <mat-option *ngFor="let pokemon of getPokemons2()" [value]="pokemon.id" class="pokemon" >
                         {{pokemon.name}}
                     </mat-option>
                 </mat-select>
@@ -28,8 +28,8 @@
 
             <mat-form-field class="example" appearance="outline">
                 <mat-label>Pokémon 3</mat-label>
-                <mat-select formControlName="pokemon3" (click)="onChange()">
-                    <mat-option *ngFor="let pokemon of pokemons"  [value]="pokemon.id" class="pokemon" >
+                <mat-select formControlName="pokemon3">
+                    <mat-option *ngFor="let pokemon of getPokemons3()"  [value]="pokemon.id" class="pokemon" >
                         {{pokemon.name}}
                     </mat-option>
                 </mat-select>
@@ -40,7 +40,7 @@
             <mat-form-field class="example" appearance="outline">
                 <mat-label>Pokémon 4</mat-label>
                 <mat-select formControlName="pokemon4">
-                    <mat-option *ngFor="let pokemon of pokemons"  [value]="pokemon.id" class="pokemon" >
+                    <mat-option *ngFor="let pokemon of getPokemons4()"  [value]="pokemon.id" class="pokemon" >
                         {{pokemon.name}}
                     </mat-option>
                 </mat-select>
@@ -49,7 +49,7 @@
             <mat-form-field class="example" appearance="outline">
                 <mat-label>Pokémon 5</mat-label>
                 <mat-select formControlName="pokemon5">
-                    <mat-option *ngFor="let pokemon of pokemons" [value]="pokemon.id" class="pokemon" >
+                    <mat-option *ngFor="let pokemon of getPokemons5()" [value]="pokemon.id" class="pokemon" >
                         {{pokemon.name}}
                     </mat-option>
                 </mat-select>
@@ -58,7 +58,7 @@
             <mat-form-field class="example" appearance="outline">
                 <mat-label>Pokémon 6</mat-label>
                 <mat-select formControlName="pokemon6">
-                    <mat-option *ngFor="let pokemon of pokemons" [value]="pokemon.id" class="pokemon" >
+                    <mat-option *ngFor="let pokemon of getPokemons6()" [value]="pokemon.id" class="pokemon" >
                         {{pokemon.name}}
                     </mat-option>
                 </mat-select>

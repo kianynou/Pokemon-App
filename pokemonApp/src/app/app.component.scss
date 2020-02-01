@@ -8,3 +8,11 @@
     background-color:#3D7DCA ;
 }
 
+@media (max-width: 750px){
+    .allCont{
+        width: 100%;
+        border: 0;
+        position: fixed;
+        height: 100%;
+    }
+}

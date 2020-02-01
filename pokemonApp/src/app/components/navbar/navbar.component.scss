@@ -46,6 +46,9 @@
     .mobileVersion{
         display: flex;
         justify-content: space-between;
+        align-items: center;
+        color: #FFCB05;
+        margin-block-end: 0;
     }
 
     .logoMobile{
@@ -55,6 +58,10 @@
 
     nav{
         background-color: #003A70;
+    }
+
+    p{
+        margin-block-end: 0;
     }
 };
 @media (min-width: 750px){

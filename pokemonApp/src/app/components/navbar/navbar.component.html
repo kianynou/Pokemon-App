@@ -1,6 +1,5 @@
 <div class="desktopVersion">
     <div class="logo">
-        <audio src="/assets/pokemon.mp3" controls ></audio>
         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/International_Pok%C3%A9mon_logo.svg/640px-International_Pok%C3%A9mon_logo.svg.png" routerLink="/pokemon/pokedex">
     </div>
 
@@ -9,8 +8,12 @@
             <button mat-button class="bouton" routerLink="/pokemon/pokedex">Pokemon</button>
             <button mat-button class="bouton">Capacités</button>
             <button mat-button class="bouton" routerLink="/talent">Talent</button>
-            <button mat-button class="bouton" routerLink="/create-team">Construire son équipe</button>
             <button mat-button class="bouton" routerLink="/search-team">Chercher une équipe</button>
+            <!-- <audio src="/assets/pokemon.mp3" controls autoplay id="aud" >
+                <script>
+                    document.getElementById('aud').play();
+                </script>
+            </audio> -->
         </div>
         <div class="menu">
             <button mat-button class="bouton" routerLink="/auth/signin" *ngIf="userService.offline">Connexion</button>
@@ -50,7 +53,7 @@
     <div class="mobileLogo">
         <button mat-button class="bouton" routerLink="/auth/signin" *ngIf="userService.offline">Connexion</button>
         <div *ngIf="userService.connectedUser" class="profil">
-            <button mat-icon-button [matMenuTriggerFor]="menu" (click)="onClickMenu()">
+            <button mat-icon-button [matMenuTriggerFor]="menu">
                 <mat-icon>account_circle</mat-icon>
             </button>
             <mat-menu #menu="matMenu">

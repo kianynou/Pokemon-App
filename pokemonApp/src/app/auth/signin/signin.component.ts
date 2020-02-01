@@ -37,7 +37,7 @@ export class SigninComponent implements OnInit {
           // success callback
           // load connected user profile and redirect to the list of posts
           this.userService.loadUser().subscribe(result => {
-            this.router.navigateByUrl('/');
+            this.router.navigateByUrl('/profil');
           })
         },
         error => {

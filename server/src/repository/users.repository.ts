@@ -31,7 +31,7 @@ export class UsersRepository {
 
     insert(user: User) {
         return this.connection.query(
-            `INSERT INTO ${this.table} (email, password, username) VALUES (?,?,?)`,
+            `INSERT INTO ${this.table} (email, password, username, role) VALUES (?,?,?,"member")`,
             [user.email, user.password, user.username]
         ).then((result: any) => {
             // After an insert the insert id is directly passed in the promise

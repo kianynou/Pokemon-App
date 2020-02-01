@@ -27,4 +27,8 @@ export class TeamService {
     return this.http.delete<Team>(`${this.baseUrl}/teams/${team.id}`);
   }
 
+  deleteTeamByAdmin(team){
+    return this.http.delete<Team>(`${this.baseUrl}/teams/${team.name}`);
+  }
+
 }

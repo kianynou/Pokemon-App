@@ -15,8 +15,14 @@ import { UserService } from 'src/app/core/shared/user.service';
 })
 export class CreateTeamComponent implements OnInit {
 
-  pokemons: Pokemon;
-  selectedPokemons: Pokemon[];
+  pokemons: Pokemon[] = [];
+
+  pokemons1: Pokemon[] = [];
+  pokemons2: Pokemon[] = [];
+  pokemons3: Pokemon[] = [];
+  pokemons4: Pokemon[] = [];
+  pokemons5: Pokemon[] = [];
+  pokemons6: Pokemon[] = [];
   connectedUser: User;
 
   teamForm: FormGroup = this.fb.group({
@@ -40,19 +46,73 @@ export class CreateTeamComponent implements OnInit {
   ngOnInit() {
     this.pokemonService.getPokemons()
     .subscribe(pokemons => {
-      this.pokemons = pokemons
+      this.pokemons = pokemons;
+      console.log(this.pokemons2)
     })
     this.connectedUser  = this.userService.connectedUser;
-    console.log(this.connectedUser)
+
   }
 
-  onChange() {
-    this.teamForm.get('pokemon1').valueChanges
-    .subscribe( selectedPokemon => {
-      this.selectedPokemons.push(selectedPokemon)
-      console.log(this.selectedPokemons)
-    });
-  };
+  getPokemons1() {
+    return this.pokemons.filter(p => 
+      p.id !== this.teamForm.get('pokemon2').value &&
+      p.id !== this.teamForm.get('pokemon3').value && 
+      p.id !== this.teamForm.get('pokemon4').value &&
+      p.id !== this.teamForm.get('pokemon5').value &&
+      p.id !== this.teamForm.get('pokemon6').value
+      )
+  }
+
+  getPokemons2() {
+    return this.pokemons.filter(p => 
+      p.id !== this.teamForm.get('pokemon1').value && 
+      p.id !== this.teamForm.get('pokemon3').value &&
+      p.id !== this.teamForm.get('pokemon4').value &&
+      p.id !== this.teamForm.get('pokemon5').value &&
+      p.id !== this.teamForm.get('pokemon6').value
+    )
+  }
+
+  getPokemons3() {
+    return this.pokemons.filter(p => 
+      p.id !== this.teamForm.get('pokemon1').value && 
+      p.id !== this.teamForm.get('pokemon2').value &&
+      p.id !== this.teamForm.get('pokemon4').value &&
+      p.id !== this.teamForm.get('pokemon5').value &&
+      p.id !== this.teamForm.get('pokemon6').value
+      )
+  }
+
+  getPokemons4() {
+    return this.pokemons.filter(p => 
+      p.id !== this.teamForm.get('pokemon1').value && 
+      p.id !== this.teamForm.get('pokemon2').value &&
+      p.id !== this.teamForm.get('pokemon3').value &&
+      p.id !== this.teamForm.get('pokemon5').value &&
+      p.id !== this.teamForm.get('pokemon6').value
+      )
+  }
+
+  getPokemons5() {
+    return this.pokemons.filter(p => 
+      p.id !== this.teamForm.get('pokemon1').value && 
+      p.id !== this.teamForm.get('pokemon2').value &&
+      p.id !== this.teamForm.get('pokemon3').value &&
+      p.id !== this.teamForm.get('pokemon4').value &&
+      p.id !== this.teamForm.get('pokemon6').value
+      )
+  }
+
+  getPokemons6() {
+    return this.pokemons.filter(p => 
+      p.id !== this.teamForm.get('pokemon1').value && 
+      p.id !== this.teamForm.get('pokemon2').value &&
+      p.id !== this.teamForm.get('pokemon3').value &&
+      p.id !== this.teamForm.get('pokemon4').value &&
+      p.id !== this.teamForm.get('pokemon5').value 
+      )
+  }
+
 
   addTeam(){
     console.log( this.teamForm.value.image)

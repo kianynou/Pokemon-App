@@ -129,4 +129,8 @@ export class TeamsRepository {
   delete(id: number): Promise<any> {
     return this.connection.query(`DELETE FROM ${this.table} WHERE id = ?`, [id]);
   }
+
+  deleteByAdmin(name: string): Promise<any> {
+    return this.connection.query(`DELETE FROM ${this.table} WHERE name = ?`, [name]);
+  }
 }

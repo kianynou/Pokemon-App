@@ -71,4 +71,8 @@ export class TeamsService {
   delete(id: number): Promise<any> {
     return this.repository.delete(id);
   }
+
+  deleteByAdmin(name: string): Promise<any> {
+    return this.repository.deleteByAdmin(name);
+  }
 }

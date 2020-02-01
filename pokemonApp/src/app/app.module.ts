@@ -25,6 +25,8 @@ import { AuthInterceptor } from './auth-interceptor';
 import { CreateTeamComponent } from './pages/create-team/create-team.component';
 import { ProfilComponent } from './pages/profil/profil.component';
 import { TeamSearchComponent } from './pages/team-search/team-search.component';
+import { AuthGuard } from './auth.guard';
+
 
 @NgModule({
   declarations: [
@@ -60,7 +62,9 @@ import { TeamSearchComponent } from './pages/team-search/team-search.component';
     provide: HTTP_INTERCEPTORS,
     useClass: AuthInterceptor,
     multi: true
-  },],
+  },
+  AuthGuard,
+],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

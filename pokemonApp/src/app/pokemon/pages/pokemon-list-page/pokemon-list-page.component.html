@@ -5,7 +5,7 @@
     </mat-form-field>
 
     <button mat-flat-button class="formButton">Chercher</button>
-    <button mat-flat-button class="formButton" routerLink="/pokemon/créer">Créer</button>
+    <button mat-flat-button *ngIf="connectedUser.username == 'admin'" class="formButton" routerLink="/pokemon/créer">Créer</button>
 </form>
 <div class="content">
     <app-pokemon-list class="pokedex"
