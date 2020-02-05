@@ -1,0 +1,72 @@
+<ngx-hm-carousel
+    [(ngModel)]="currentIndex"
+
+    show-num="auto"
+    [breakpoint]="breakpoint"
+
+    [autoplay-speed]="300"
+    [between-delay]="500"
+    [infinite]="infinite"
+    [drag-many]="true"
+    [aniTime]="200"
+    [data]="avatars"
+    class="carousel c-accent">
+
+    <section ngx-hm-carousel-container class="content">
+        <article class="item cursor-pointer"
+        ngx-hm-carousel-item
+        *ngFor="let avatar of avatars; let i = index"
+            [ngClass]="{'visible': currentIndex===i}">
+        <div class="img d-flex justify-content-center align-items-center">
+            <mat-card class="example-card" data-aos="fade-up" data-aos-once="true">
+                <mat-card-header class="cardHeader">
+                    <mat-card-title>{{pokemons[i].name}}</mat-card-title>
+                </mat-card-header>
+                <img class="avatar" mat-card-image src="http://localhost:3000/uploads/{{pokemons[i].image}}" alt="Photo of a Shiba Inu">
+                <mat-card-actions>
+                    <button mat-button>Détails</button>
+                </mat-card-actions>
+            </mat-card>
+        </div>
+        </article>
+        <ng-template #infiniteContainer></ng-template>
+    </section>
+
+    <ng-template #carouselContent let-avatar let-i="index">
+        <article class="item cursor-pointer"
+        [ngClass]="{'visible': currentIndex===i}">
+        <div class="img d-flex justify-content-center align-items-center">
+            <mat-card class="example-card" data-aos="fade-up" data-aos-once="true">
+                <mat-card-header class="cardHeader">
+                    <mat-card-title>{{pokemons[i].name}}</mat-card-title>
+                </mat-card-header>
+                <img class="avatar" mat-card-image src="http://localhost:3000/uploads/{{pokemons[i].image}}" alt="Photo of a Shiba Inu">
+                <mat-card-actions>
+                    <button mat-button>Détails</button>
+                </mat-card-actions>
+            </mat-card>
+        </div>
+        </article>
+    </ng-template>
+
+    <ng-template #carouselPrev>
+        <div class="click-area">
+            <i class="material-icons">keyboard_arrow_left</i>
+        </div>
+    </ng-template>
+    <ng-template #carouselNext>
+        <div class="click-area">
+            <i class="material-icons">keyboard_arrow_right</i>
+        </div>
+    </ng-template>
+
+    <ng-template #carouselDot let-model>
+        <div class="ball bg-accent"
+        [class.visible]="model.index === model.currentIndex"></div>
+    </ng-template>
+
+    <ng-template #carouselProgress let-progress>
+        <div class="progress"></div>
+    </ng-template>
+
+</ngx-hm-carousel>

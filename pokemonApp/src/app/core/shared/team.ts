@@ -1,6 +1,6 @@
 export class Team {
     id: number;
-    name: string
+    name: string;
     user_id: string;
     pokemon1: number;
     pokemon2: number;

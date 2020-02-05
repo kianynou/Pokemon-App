@@ -1,5 +1,5 @@
-import { Capacity } from './../models/capacity';
-import { CapacityService } from './../services/capacity.service';
+import { Capacity } from '../models/capacity';
+import { CapacitiesService } from '../services/capacities.service';
 import express, { Router, Request, Response, Application } from 'express';
 
 /**
@@ -9,10 +9,10 @@ import express, { Router, Request, Response, Application } from 'express';
  *
  * @param app l'application express
  */
-export const CapacityController = (app: Application) => {
+export const CapacitiesController = (app: Application) => {
 
     const router: Router = express.Router();
-    const capacityService = CapacityService.getInstance();
+    const capacityService = CapacitiesService.getInstance();
 
     /**
      * Return all capacities in JSON
@@ -81,5 +81,5 @@ export const CapacityController = (app: Application) => {
         })
     });
 
-    app.use('/capacity', router);
+    app.use('/capacities', router);
 };

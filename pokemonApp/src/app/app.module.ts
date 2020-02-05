@@ -15,7 +15,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PokemonDetailsComponent } from './components/pokemon-details/pokemon-details.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { PokemonListComponent } from './components/pokemon-list/pokemon-list.component';
-import { HomeComponent } from './pages/home/home.component';
 import { PokemonListPageComponent } from './pages/pokemon-list-page/pokemon-list-page.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { CreateTalentComponent } from './components/create-talent/create-talent.component';
@@ -26,6 +25,8 @@ import { CreateTeamComponent } from './pages/create-team/create-team.component';
 import { ProfilComponent } from './pages/profil/profil.component';
 import { TeamSearchComponent } from './pages/team-search/team-search.component';
 import { AuthGuard } from './auth.guard';
+import { TypeComponent } from './pages/type/type.component';
+
 
 
 @NgModule({
@@ -34,13 +35,13 @@ import { AuthGuard } from './auth.guard';
     PokemonDetailsComponent,
     NavbarComponent,
     PokemonListComponent,
-    HomeComponent,
     PokemonListPageComponent,
     CreateTalentComponent,
     TalentComponent,
     CreateTeamComponent,
     ProfilComponent,
-    TeamSearchComponent
+    TeamSearchComponent,
+    TypeComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,5 +1,5 @@
 import { Capacity } from '../models/capacity';
-import { MysqlConnection } from './../loaders/mysql';
+import { MysqlConnection } from '../loaders/mysql';
 
 /**
  * Cette classe est un repository
@@ -7,16 +7,16 @@ import { MysqlConnection } from './../loaders/mysql';
  * Attention, aucune logique javascript ne doit apparaitre ici.
  * Il s'agit seulement de la couche de récupération des données (requeêe sql)
  */
-export class CapacityRepository {
+export class CapacitiesRepository {
 
-    private static instance: CapacityRepository;
+    private static instance: CapacitiesRepository;
     private connection: MysqlConnection = MysqlConnection.getInstance();
 
     private table: string = 'Capacity';
 
     static getInstance() {
         if (!this.instance) {
-            this.instance = new CapacityRepository();
+            this.instance = new CapacitiesRepository();
         }
         return this.instance;
     }
@@ -28,7 +28,20 @@ export class CapacityRepository {
      * Make a query to the database to retrieve all capacities and return it in a promise.
      */
     findAll(): Promise<Capacity[]> {
-        return this.connection.query(`SELECT * from ${this.table}`)
+        return this.connection.query(`SELECT 
+        c.id, 
+        c.name, 
+        c.description, 
+        c.power, 
+        c.accuracy, 
+        c.category,
+        c.pp,
+        t.image
+            FROM ${this.table} as c
+            JOIN Type as t ON t.id = c.type_id
+            ORDER BY name
+            `
+            )
             .then((results: any) => {
             return results.map((capacity: any) => new Capacity(capacity));
             });
@@ -44,15 +57,14 @@ export class CapacityRepository {
             .then((results: any) => new Capacity(results[0]));
     }
 
-
     /**
      * Make a query to the database to insert a new capacity and return the created capacity in a promise.
      * @param capacity capacity to create
      */
     insert(capacity: Capacity) {
         return this.connection.query(
-            `INSERT INTO ${this.table} (name, description, power, precision, type_id) VALUES (?,?)`,
-            [capacity.name, capacity.description, capacity.power, capacity.precision, capacity.type_id]
+            `INSERT INTO ${this.table} (name, description, power, accuracy, type_id, category, pp) VALUES (?,?,?,?,?,?,?)`,
+            [capacity.name, capacity.description, capacity.power, capacity.accuracy, capacity.type_id, capacity.category, capacity.pp]
         ).then((result: any) => {
         // After an insert the insert id is directly passed in the promise
             return this.findById(result.insertId);
@@ -65,8 +77,8 @@ export class CapacityRepository {
      */
     update(capacity: Capacity) {
         return this.connection.query(
-            `UPDATE ${this.table} SET name = ?, description = ? WHERE id = ?`,
-            [capacity.name, capacity.description, capacity.id]
+            `UPDATE ${this.table} SET name = ?, description = ?, power = ?, accuracy = ?, type_id = ?, category = ?, pp = ? WHERE id = ?`,
+            [capacity.name, capacity.description, capacity.power, capacity.accuracy, capacity.type_id, capacity.category, capacity.pp]
         ).then(() => {
             return this.findById(capacity.id);
         });

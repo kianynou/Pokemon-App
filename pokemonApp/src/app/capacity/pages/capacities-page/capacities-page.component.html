@@ -1,0 +1,6 @@
+<p>capacities-page works!</p>
+<button mat-button routerLink="/capacity/create">Ajouter</button>
+<div *ngFor = "let capacity of capacities">
+    {{capacity.name}}
+    <img src="http://localhost:3000/uploads/{{capacity.image}}" />
+</div>

@@ -1,0 +1,81 @@
+<ngx-hm-carousel
+    [(ngModel)]="index"
+    [autoplay-speed]="speed"
+    [autoplay]="autoplay"
+    [autoplay-direction]="direction"
+    [infinite]="infinite"
+    [between-delay]="10000"
+    [data]="avatars"
+    [aniTime]="200"
+    class="carousel text-accent">
+
+    <section ngx-hm-carousel-container class="content">
+        <article class="item cursor-pointer fade_animation"
+        ngx-hm-carousel-item
+        *ngFor="let avatar of avatars; let i = index"
+        [ngClass]="{'visible': index===i}">
+        <div class="img" [style.backgroundImage]="'url('+avatar.url+')'">
+
+            <div class="contText" *ngIf="index=='0'">
+                <div class="conteneur">
+                    <h2>The Best <span>Games</span> Out There</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada <br> lorem maximus mauris scelerisque, at rutrum nulla dictum. Ut ac ligula sapien. <br>Suspendisse cursus faucibus finibus.</p>
+                    <button mat-flat-button>En savoir plus</button>
+                </div>
+            </div>
+            <div class="contText" *ngIf="index=='1'">
+                <div class="conteneur">
+                    <h2>The Best <span>Games</span> Out There</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada <br> lorem maximus mauris scelerisque, at rutrum nulla dictum. Ut ac ligula sapien. <br>Suspendisse cursus faucibus finibus.</p>
+                    <button mat-flat-button>En savoir plus</button>
+                </div>
+            </div>
+            <div class="contText" *ngIf="index=='2'">
+                <div class="conteneur">
+                    <h2>The Best <span>Games</span> Out There</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada <br> lorem maximus mauris scelerisque, at rutrum nulla dictum. Ut ac ligula sapien. <br>Suspendisse cursus faucibus finibus.</p>
+                    <button mat-flat-button>En savoir plus</button>
+                </div>
+            </div>
+        </div>
+        </article>
+        <ng-template #infiniteContainer></ng-template>
+    </section>
+
+
+    <ng-template #carouselContent let-avatar let-i="index">
+        <article class="item cursor-pointer fade_animation"
+        [ngClass]="{'visible': index===i}">
+        <div class="img" [style.backgroundImage]="'url('+avatar.url+')'">
+
+            <div class="contText" *ngIf="index=='0'">
+                <div class="conteneur">
+                    <h2>The Best <span>Games</span> Out There</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada <br> lorem maximus mauris scelerisque, at rutrum nulla dictum. Ut ac ligula sapien. <br>Suspendisse cursus faucibus finibus.</p>
+                    <button mat-flat-button>En savoir plus</button>
+                </div>
+            </div>
+            <div class="contText" *ngIf="index=='1'">
+                <div class="conteneur">
+                    <h2>The Best <span>Games</span> Out There</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada <br> lorem maximus mauris scelerisque, at rutrum nulla dictum. Ut ac ligula sapien. <br>Suspendisse cursus faucibus finibus.</p>
+                    <button mat-flat-button>En savoir plus</button>
+                </div>
+            </div>
+            <div class="contText" *ngIf="index=='2'">
+                <div class="conteneur">
+                    <h2>The Best <span>Games</span> Out There</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada <br> lorem maximus mauris scelerisque, at rutrum nulla dictum. Ut ac ligula sapien. <br>Suspendisse cursus faucibus finibus.</p>
+                    <button mat-flat-button>En savoir plus</button>
+                </div>
+            </div>
+
+        </div>
+        </article>
+    </ng-template>
+
+    <ng-template #carouselDot let-model>
+        <div class="ball bg-accent" [class.visible]="model.index === model.currentIndex"></div>
+    </ng-template>
+
+</ngx-hm-carousel>

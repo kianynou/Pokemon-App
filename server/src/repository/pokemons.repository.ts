@@ -6,7 +6,7 @@ export class PokemonsRepository {
     private static instance: PokemonsRepository;
     private connection: MysqlConnection = MysqlConnection.getInstance();
 
-    private table: string = 'PokemonCheckpoint';
+    private table: string = 'Pokemon';
 
     static getInstance() {
         if (!this.instance) {
@@ -32,8 +32,50 @@ export class PokemonsRepository {
 
     insert(pokemon: Pokemon) {
         return this.connection.query(
-            `INSERT INTO ${this.table} (number, name, image) VALUES (?,?,?)`,
-            [pokemon.number, pokemon.name, pokemon.image]
+            `INSERT INTO ${this.table} (
+                number,
+                name,
+                artwork,
+                sprite,
+                spriteShiny,
+                description, 
+                talent1,
+                talent2,
+                talent3,
+                type1,
+                type2,
+                evolution,
+                prevolution,
+                hp,
+                atk,
+                def,
+                atkspe,
+                defspe,
+                speed,
+                special,
+            ) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)`,
+            [
+                pokemon.number, 
+                pokemon.name, 
+                pokemon.artwork, 
+                pokemon.sprite, 
+                pokemon.spriteShiny, 
+                pokemon.description, 
+                pokemon.talent1, 
+                pokemon.talent2, 
+                pokemon.talent3, 
+                pokemon.type1,
+                pokemon.type2,
+                pokemon.evolution,
+                pokemon.prevolution,
+                pokemon.hp,
+                pokemon.atk,
+                pokemon.def,
+                pokemon.atkspe,
+                pokemon.defspe,
+                pokemon.speed,
+                pokemon.special,
+            ]
         ).then((result: any) => {
             // After an insert the insert id is directly passed in the promise
             return this.findById(result.insertId);

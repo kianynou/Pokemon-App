@@ -1,0 +1,23 @@
+<div class="createTypeCont">
+    <h1>Ajouter un type à la liste existante</h1>
+    <form [formGroup]="typeForm" class="typeForm" (ngSubmit)="addType()">
+
+        <mat-form-field appearance="outline">
+            <mat-label>Nom</mat-label>
+            <input matInput formControlName="name" required/>
+        </mat-form-field>   
+
+        <div class="align">
+            <label>Image : </label><br/>
+            <input type="file" (change)="onFileSelect($event)"/>
+        </div><br/>
+
+        <div class="bas">          
+            <button class="formButton" mat-button type="submit">Créer</button>
+        </div> 
+        
+    </form>
+</div>
+<div *ngFor="let type of types">
+    <img src="http://localhost:3000/uploads/{{type.image}}" />
+</div>

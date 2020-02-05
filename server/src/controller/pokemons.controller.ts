@@ -75,19 +75,51 @@ export const PokemonsController = (app: Application) => {
                     message: 'No file uploaded'
                 });
             } else {
-                let image : any = req.files.image;
-                console.log(req.files.image)
-                console.log(image);
+                let artwork : any = req.files.artwork;
+                console.log(req.files.artwork)
+                console.log(artwork);
         
-                image.mv('./uploads/' + image.name)
+                artwork.mv('./uploads/' + artwork.name)
         
                 res.send({
                     status: true,
                     message: 'File is uploaded',
                     data: {
-                        name: image.name,
-                        mimetype: image.mimetype,
-                        size: image.size
+                        name: artwork.name,
+                        mimetype: artwork.mimetype,
+                        size: artwork.size
+                    }
+                });
+
+                let sprite : any = req.files.sprite;
+                console.log(req.files.sprite)
+                console.log(sprite);
+        
+                sprite.mv('./uploads/' + sprite.name)
+        
+                res.send({
+                    status: true,
+                    message: 'File is uploaded',
+                    data: {
+                        name: sprite.name,
+                        mimetype: sprite.mimetype,
+                        size: sprite.size
+                    }
+                });
+
+                let spriteShiny : any = req.files.spriteShiny;
+                console.log(req.files.spriteShiny)
+                console.log(spriteShiny);
+        
+                spriteShiny.mv('./uploads/' + spriteShiny.name)
+
+                res.send({
+                    status: true,
+                    message: 'File is uploaded',
+                    data: {
+                        name: spriteShiny.name,
+                        mimetype: spriteShiny.mimetype,
+                        size: spriteShiny.size
                     }
                 });
             }

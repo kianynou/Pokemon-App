@@ -1,13 +1,19 @@
 <div class="desktopVersion">
-    <div class="logo">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/International_Pok%C3%A9mon_logo.svg/640px-International_Pok%C3%A9mon_logo.svg.png" routerLink="/pokemon/pokedex">
-    </div>
-
+    
     <mat-toolbar class="navbar">
         <div class="menu">
+
+            <div class="logo">
+                <p routerLink="">LOGO</p>
+            </div>
+            <!-- <div class="logo" routerLink="/pokemon/pokedex">  
+                <img src="/assets/pokemon-symbol-logo-png-31.png"  >    
+            </div>
+            -->
             <button mat-button class="bouton" routerLink="/pokemon/pokedex">Pokemon</button>
-            <button mat-button class="bouton">Capacités</button>
+            <button mat-button class="bouton" routerLink="/capacity">Capacités</button>
             <button mat-button class="bouton" routerLink="/talent">Talent</button>
+            <button mat-button class="bouton" routerLink="/type">Type</button>
             <button mat-button class="bouton" routerLink="/search-team">Chercher une équipe</button>
             <!-- <audio src="/assets/pokemon.mp3" controls autoplay id="aud" >
                 <script>
@@ -40,8 +46,9 @@
     </button>
     <mat-menu #menu="matMenu">
         <button mat-menu-item class="bouton" routerLink="/pokemon/pokedex">Pokemon</button>
-        <button mat-menu-item class="bouton">Capacités</button>
+        <button mat-menu-item class="bouton" routerLink="/capacity">Capacités</button>
         <button mat-menu-item class="bouton" routerLink="/talent">Talent</button>
+        <button mat-menu-item class="bouton" routerLink="/type">Type</button>
         <button mat-menu-item class="bouton" routerLink="/create-team">Construire son équipe</button>
         <button mat-menu-item class="bouton" routerLink="/search-team">Chercher une équipe</button>
     </mat-menu>

@@ -1,4 +1,28 @@
 
+
+<app-home-carousel></app-home-carousel>
+<app-scroll-to-top></app-scroll-to-top>
+
+<!-- <app-pokemon-carousel></app-pokemon-carousel> -->
+
+<div class="pokeCont">
+    <h2>Consultez les fiches de l'ensemble des Pokemons</h2>
+    <div class="pokeList">
+        <div *ngFor="let pokemon of pokemons" class="card">
+            <mat-card class="example-card" data-aos="fade-up" data-aos-once="true">
+                <mat-card-header class="cardHeader">
+                    <mat-card-title>{{pokemon.name}}</mat-card-title>
+                </mat-card-header>
+                <img mat-card-image src="http://localhost:3000/uploads/{{pokemon.image}}" alt="Photo of a Shiba Inu">
+                <mat-card-actions>
+                    <button mat-button>Détails</button>
+                </mat-card-actions>
+            </mat-card>
+        </div>
+    </div>
+    <button mat-flat-button routerLink="/pokemon/pokedex">Liste complète</button>
+</div>
+<!-- 
 <form class="formulaire">
     <mat-form-field class="example">
             <mat-select placeholder="Type">
@@ -33,5 +57,5 @@
         (pokemonClick)="onPokemonSelect($event)">
     </app-pokemon-list>
     <app-pokemon-details class="details" [detailedPokemon] = "pokemonDetail"></app-pokemon-details>
-</div>
+</div> -->
 

@@ -1,8 +1,14 @@
-.logo {
+img{
+    width: 25%;
+    height: auto;
+}
+
+.logo{
     display: flex;
-    justify-content: center;
-    background-color: #3D7DCA;
-    background-image: url(http://www.coque-avec-photo.com/img/cms/banniere-pokemon.png);
+    align-items: center;
+    p{
+        margin-block-end: 0;
+    }
 }
 
 .navbar {

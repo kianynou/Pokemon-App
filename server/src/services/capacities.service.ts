@@ -1,25 +1,25 @@
-import { CapacityRepository } from './../repository/capacity.repository';
+import { CapacitiesRepository } from '../repository/capacities.repository';
 import { Capacity } from 'src/models/capacity';
 /**
  * Cette classe est un service
  * C'est ici que l'ensemble de la logique consernant les post doit apparaitre.
  * Attention ! Mettez le moins possible d'element dans le controller
  */
-export class CapacityService {
+export class CapacitiesService {
 
     // Make service => singletonTransformation de notre service en singleton
-    private static instance: CapacityService;
+    private static instance: CapacitiesService;
     static getInstance() {
         if (!this.instance) {
-            this.instance = new CapacityService();
+            this.instance = new CapacitiesService();
         }
         return this.instance;
     }
 
     // Un singleton est une class ayant une instance unique a travers toute l'app
-    private repository: CapacityRepository;
+    private repository: CapacitiesRepository;
     private constructor() {
-        this.repository = CapacityRepository.getInstance();
+        this.repository = CapacitiesRepository.getInstance();
     }
 
     // Business logic
