@@ -1,10 +1,10 @@
 export class Pokemon {
     id! : number;
-    number! : number;
+    numero! : number;
     name! : string;
     artwork! : string;
     sprite! : string;
-    spriteShiny! : string;
+    spriteshiny! : string;
     description! : string; 
     talent1! : number;
     talent2! : number;

@@ -76,7 +76,6 @@ export const PokemonsController = (app: Application) => {
                 });
             } else {
                 let artwork : any = req.files.artwork;
-                console.log(req.files.artwork)
                 console.log(artwork);
         
                 artwork.mv('./uploads/' + artwork.name)
@@ -92,7 +91,6 @@ export const PokemonsController = (app: Application) => {
                 });
 
                 let sprite : any = req.files.sprite;
-                console.log(req.files.sprite)
                 console.log(sprite);
         
                 sprite.mv('./uploads/' + sprite.name)
@@ -107,19 +105,18 @@ export const PokemonsController = (app: Application) => {
                     }
                 });
 
-                let spriteShiny : any = req.files.spriteShiny;
-                console.log(req.files.spriteShiny)
-                console.log(spriteShiny);
+                let spriteshiny : any = req.files.spriteshiny;
+                console.log(spriteshiny);
         
-                spriteShiny.mv('./uploads/' + spriteShiny.name)
+                spriteshiny.mv('./uploads/' + spriteshiny.name)
 
                 res.send({
                     status: true,
                     message: 'File is uploaded',
                     data: {
-                        name: spriteShiny.name,
-                        mimetype: spriteShiny.mimetype,
-                        size: spriteShiny.size
+                        name: spriteshiny.name,
+                        mimetype: spriteshiny.mimetype,
+                        size: spriteshiny.size
                     }
                 });
             }

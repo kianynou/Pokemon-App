@@ -33,15 +33,15 @@ export class PokemonsRepository {
     insert(pokemon: Pokemon) {
         return this.connection.query(
             `INSERT INTO ${this.table} (
-                number,
+                numero,
                 name,
                 artwork,
                 sprite,
-                spriteShiny,
-                description, 
-                talent1,
-                talent2,
-                talent3,
+                spriteshiny,
+                description,
+                talent1, 
+                talent2, 
+                talent3, 
                 type1,
                 type2,
                 evolution,
@@ -52,14 +52,37 @@ export class PokemonsRepository {
                 atkspe,
                 defspe,
                 speed,
-                special,
-            ) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)`,
+                special
+            ) 
+            VALUES 
+                (
+                    ?,
+                    ?,
+                    ?,
+                    ?,
+                    ?,
+                    ?,
+                    ?,
+                    ?,
+                    ?,
+                    ?,
+                    ?,
+                    ?,
+                    ?,
+                    ?,
+                    ?,
+                    ?,
+                    ?,
+                    ?,
+                    ?,
+                    ?
+                )`,
             [
-                pokemon.number, 
+                pokemon.numero, 
                 pokemon.name, 
                 pokemon.artwork, 
                 pokemon.sprite, 
-                pokemon.spriteShiny, 
+                pokemon.spriteshiny, 
                 pokemon.description, 
                 pokemon.talent1, 
                 pokemon.talent2, 
@@ -74,7 +97,7 @@ export class PokemonsRepository {
                 pokemon.atkspe,
                 pokemon.defspe,
                 pokemon.speed,
-                pokemon.special,
+                pokemon.special
             ]
         ).then((result: any) => {
             // After an insert the insert id is directly passed in the promise
@@ -84,8 +107,8 @@ export class PokemonsRepository {
 
     update(pokemon: Pokemon) {
         return this.connection.query(
-            `UPDATE ${this.table} SET number = ?, name = ? WHERE id = ?`,
-            [pokemon.number, pokemon.name, pokemon.id]
+            `UPDATE ${this.table} SET numero = ? WHERE id = ?`,
+            [pokemon.numero, pokemon.id]
         ).then(() => {
             return this.findById(pokemon.id);
         });

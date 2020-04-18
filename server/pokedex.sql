@@ -77,10 +77,10 @@ CREATE TABLE IF NOT EXISTS `Pokedex`.`Pokemon` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `number` INT NOT NULL,
   `name` VARCHAR(45) NOT NULL,
-  `artwork` VARCHAR(255) NOT NULL,
-  `sprite` VARCHAR(255) NOT NULL,
-  `spriteShiny` VARCHAR(255) NOT NULL,
-  `description` TINYTEXT NOT NULL,
+  `artwork` VARCHAR(45) NOT NULL,
+  `sprite` VARCHAR(45) NOT NULL,
+  `spriteshiny` VARCHAR(45) NOT NULL,
+  `description` VARCHAR(150) NOT NULL,
   `talent1` INT(11) NOT NULL,
   `talent2` INT(11) NULL,
   `talent3` INT(11) NULL,
@@ -88,14 +88,13 @@ CREATE TABLE IF NOT EXISTS `Pokedex`.`Pokemon` (
   `type2` INT(11) NULL,
   `evolution` INT(11) NULL,
   `prevolution` INT(11) NULL,
-  `hp` INT NOT NULL,
-  `atk` INT NOT NULL,
-  `def` INT NOT NULL,
-  `atkspe` INT NOT NULL,
-  `defspe` INT NOT NULL,
-  `speed` INT NULL,
-  `special` INT NULL,
-  `Pokemoncol` VARCHAR(45) NULL,
+  `hp` INT(11) NOT NULL,
+  `atk` INT(11) NOT NULL,
+  `def` INT(11) NOT NULL,
+  `atkspe` INT(11) NOT NULL,
+  `defspe` INT(11) NOT NULL,
+  `speed` INT(11) NOT NULL,
+  `special` INT(11) NOT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_Pokemon_Talent1_idx` (`talent1` ASC),
   INDEX `fk_Pokemon_Talent2_idx` (`talent2` ASC),
@@ -259,3 +258,72 @@ DEFAULT CHARACTER SET = utf8;
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
+
+CREATE TABLE IF NOT EXISTS `Pokedex`.`Pokemontest` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `numero` INT(11) NOT NULL,
+  `name` VARCHAR(45) NOT NULL,
+  `artwork` VARCHAR(255) NOT NULL,
+  `sprite` VARCHAR(255) NOT NULL,
+  `spriteShiny` VARCHAR(255) NOT NULL,
+  `description` TINYTEXT NOT NULL,
+  -- `talent1` INT(11) NOT NULL,
+  -- `talent2` INT(11) NULL,
+  -- `talent3` INT(11) NULL,
+  -- `type1` INT(11) NOT NULL,
+  -- `type2` INT(11) NULL,
+  -- `evolution` INT(11) NULL,
+  -- `prevolution` INT(11) NULL,
+  `hp` INT(11) NOT NULL,
+  `atk` INT(11) NOT NULL,
+  `def` INT(11) NOT NULL,
+  `atkspe` INT(11) NOT NULL,
+  `defspe` INT(11) NOT NULL,
+  `speed` INT(11) NOT NULL,
+  `special` INT(11) NOT NULL,
+  PRIMARY KEY (`id`))
+  -- INDEX `fk_Pokemon_Talent1_idx` (`talent1` ASC),
+  -- INDEX `fk_Pokemon_Talent2_idx` (`talent2` ASC),
+  -- INDEX `fk_Pokemon_Talent3_idx` (`talent3` ASC),
+  -- INDEX `fk_Pokemon_Type1_idx` (`type1` ASC),
+  -- INDEX `fk_Pokemon_Type2_idx` (`type2` ASC),
+  -- INDEX `fk_Pokemon_Pokemon1_idx` (`evolution` ASC),
+  -- INDEX `fk_Pokemon_Pokemon2_idx` (`prevolution` ASC),
+  -- CONSTRAINT `fk_Pokemon_Talent1`
+  --   FOREIGN KEY (`talent1`)
+  --   REFERENCES `Pokedex`.`Talent` (`id`)
+  --   ON DELETE NO ACTION
+  --   ON UPDATE NO ACTION,
+  -- CONSTRAINT `fk_Pokemon_Talent2`
+  --   FOREIGN KEY (`talent2`)
+  --   REFERENCES `Pokedex`.`Talent` (`id`)
+  --   ON DELETE NO ACTION
+  --   ON UPDATE NO ACTION,
+  -- CONSTRAINT `fk_Pokemon_Talent3`
+  --   FOREIGN KEY (`talent3`)
+  --   REFERENCES `Pokedex`.`Talent` (`id`)
+  --   ON DELETE NO ACTION
+  --   ON UPDATE NO ACTION,
+  -- CONSTRAINT `fk_Pokemon_Type1`
+  --   FOREIGN KEY (`type1`)
+  --   REFERENCES `Pokedex`.`Type` (`id`)
+  --   ON DELETE NO ACTION
+  --   ON UPDATE NO ACTION,
+  -- CONSTRAINT `fk_Pokemon_Type2`
+  --   FOREIGN KEY (`type2`)
+  --   REFERENCES `Pokedex`.`Type` (`id`)
+  --   ON DELETE NO ACTION
+  --   ON UPDATE NO ACTION,
+  -- CONSTRAINT `fk_Pokemon_Pokemon1`
+  --   FOREIGN KEY (`evolution`)
+  --   REFERENCES `Pokedex`.`Pokemon` (`id`)
+  --   ON DELETE NO ACTION
+  --   ON UPDATE NO ACTION,
+  -- CONSTRAINT `fk_Pokemon_Pokemon2`
+  --   FOREIGN KEY (`prevolution`)
+  --   REFERENCES `Pokedex`.`Pokemon` (`id`)
+  --   ON DELETE NO ACTION
+  --   ON UPDATE NO ACTION
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
