@@ -2,18 +2,70 @@
     <h1>Créer un Pokemon</h1>
     <form [formGroup]="pokemonForm" class="pokeForm" (ngSubmit)="addPokemon()">
 
-        <mat-form-field appearance="outline">
-            <mat-label>Numéro</mat-label>
-            <input matInput formControlName="number" required/>
-        </mat-form-field>
+        <div>
 
-        <mat-form-field appearance="outline">
-            <mat-label>Nom</mat-label>
-            <input matInput formControlName="name" required/>
-        </mat-form-field>   
+            <mat-form-field appearance="outline">
+                <mat-label>Numéro</mat-label>
+                <input matInput formControlName="numero" pokemonForm/>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Nom</mat-label>
+                <input matInput formControlName="name" pokemonForm/>
+            </mat-form-field>   
+
+            <mat-form-field appearance="outline">
+                <mat-label>Description</mat-label>
+                <textarea matInput formControlName="description" pokemonForm></textarea>
+            </mat-form-field>
+
+        </div>
+
+        <div>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Talent 1</mat-label>
+                <mat-select formControlName="talent1" pokemonForm>
+                    <mat-option *ngFor='let talent1 of getTalent1()' [value]='talent1.id'>{{ talent1.name }}</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Talent 2</mat-label>
+                <mat-select formControlName="talent2" pokemonForm>
+                    <mat-option *ngFor='let talent2 of getTalent2()' [value]='talent2.id'>{{ talent2.name }}</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Talent 3</mat-label>
+                <mat-select formControlName="talent3" pokemonForm>
+                    <mat-option *ngFor='let talent3 of getTalent3()' [value]='talent3.id'>{{ talent3.name }}</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+        </div>
+
+        <div>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Pré-évolution</mat-label>
+                <mat-select formControlName="prevolution" pokemonForm>
+                    <mat-option *ngFor='let pokemons of getPrevoluton()' [value]='pokemons.id'>{{ pokemons.name }}</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Évolution</mat-label>
+                <mat-select formControlName="evolution" pokemonForm>
+                    <mat-option *ngFor='let pokemons of getEvoluton()' [value]='pokemons.id'>{{ pokemons.name }}</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+        </div>
 
         <div class="align">
-            <label>Image : </label><br/>
+            <label>Artwork : </label><br/>
             <input type="file" (change)="onFileSelect($event)"/>
         </div><br/>
 
@@ -26,6 +78,57 @@
             <label>Sprite Shiny : </label><br/>
             <input type="file" (change)="onFileSelect($event)"/>
         </div><br/>
+
+        <div class="stats">
+
+            <div class="stat" >
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Points de Vie</mat-label>
+                    <input matInput formControlName="hp" pokemonForm/>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Attaque</mat-label>
+                    <input matInput formControlName="atk" pokemonForm/>
+                </mat-form-field>
+
+            </div>
+
+            <div class="stat">
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Défense</mat-label>
+                    <input matInput formControlName="def" pokemonForm/>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Attaque spécial</mat-label>
+                    <input matInput formControlName="atkspe" pokemonForm/>
+                </mat-form-field>
+
+            </div>
+
+            <div class="stat" >
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Défense spécial</mat-label>
+                    <input matInput formControlName="defspe" pokemonForm/>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Vitesse</mat-label>
+                    <input matInput formControlName="speed" pokemonForm/>
+                </mat-form-field>
+
+            </div>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Spécial</mat-label>
+                <input matInput formControlName="special" pokemonForm/>
+            </mat-form-field>
+
+        </div>
 
         <div class="bas">          
             <button class="formButton" mat-button type="submit">Créer</button>

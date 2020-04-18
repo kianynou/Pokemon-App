@@ -6,10 +6,7 @@ import { PokemonRoutingModule } from './pokemon-routing.module';
 import { PokemonComponent } from './pokemon.component';
 import { PokemonListComponent } from './components/pokemon-list/pokemon-list.component';
 import { PokemonCreerComponent } from './components/pokemon-creer/pokemon-creer.component';
-import { MatButtonModule } from '@angular/material/button';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
-import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatButtonModule, MatFormFieldModule,  MatInputModule,  MatPaginatorModule, MatSelectModule} from '@angular/material';
 import { PokemonListPageComponent } from './pages/pokemon-list-page/pokemon-list-page.component';
 import { PokemonDetailsComponent } from './components/pokemon-details/pokemon-details.component';
 
@@ -29,7 +26,8 @@ import { PokemonDetailsComponent } from './components/pokemon-details/pokemon-de
     MatButtonModule,
     MatFormFieldModule,
     MatInputModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatSelectModule,
   ]
 })
 export class PokemonModule { }

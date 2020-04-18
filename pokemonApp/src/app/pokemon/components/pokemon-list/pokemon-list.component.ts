@@ -17,10 +17,10 @@ export class PokemonListComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.pokemonService.getPokemons()
-    .subscribe(pokemons => {
-      this.pokemons = pokemons
-    })
+    // this.pokemonService.getPokemons()
+    // .subscribe(pokemons => {
+    //   this.pokemons = pokemons
+    // })
   }
 
   onPokemonClick(pokemon: Pokemon) {

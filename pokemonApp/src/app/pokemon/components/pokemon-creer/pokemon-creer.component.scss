@@ -38,7 +38,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100%;
+    height: auto;
 }
 
 .pokeForm{
@@ -54,3 +54,9 @@
     justify-content: space-around;
     align-items: center;
 }
+
+.stats{
+    display: flex;
+    flex-direction: column;
+}
+

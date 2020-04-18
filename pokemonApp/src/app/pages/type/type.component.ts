@@ -54,11 +54,11 @@ export class TypeComponent implements OnInit {
           result=>{
             console.log(result)
           });
-          this.getType();
-          this.typeForm.reset({
-            'name': '',
-            'image': '',
-          });
+        this.getType();
+        this.typeForm.reset({
+          'name': '',
+          'image': '',
+        });
         (err) => console.log(err)
       }
     );

@@ -4,6 +4,8 @@ import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { PokemonService } from 'src/app/core/shared/pokemon.service';
 import { Pokemon } from 'src/app/core/shared/pokemon';
+import { TalentService } from 'src/app/core/shared/talent.service';
+import { Talent } from 'src/app/core/shared/talent';
 
 @Component({
   selector: 'app-pokemon-creer',
@@ -15,14 +17,16 @@ export class PokemonCreerComponent implements OnInit {
 
   private baseUrl = 'http://localhost:3000';
   newPokemon: Pokemon;
-  files = []
+  files = [];
+  talents: Talent[] = [];
+  pokemons: Pokemon[] =  [];
 
   pokemonForm: FormGroup = this.fb.group({
-    number: [''],
+    numero: [''],
     name: [''],
     artwork : [''],
     sprite : [''],
-    spriteShiny : [''],
+    spriteshiny : [''],
     description : [''],
     talent1 : [''],
     talent2 : [''],
@@ -44,10 +48,18 @@ export class PokemonCreerComponent implements OnInit {
     private fb: FormBuilder, 
     private pokemonService: PokemonService, 
     private http: HttpClient,
-    private router: Router
+    private router: Router,
+    private talentService: TalentService,
   ) { }
 
   ngOnInit() {
+    this.talentService.getTalent().subscribe((talents) => {
+      this.talents = talents;
+    });
+    // this.pokemonService.getPokemons().subscribe((pokemons) => {
+    //   this.pokemons = pokemons;
+    //   console.log(this.pokemons)
+    // })
   }
 
   onFileSelect(event) {
@@ -56,25 +68,61 @@ export class PokemonCreerComponent implements OnInit {
       this.files.push(event.target.files[0]);
       this.pokemonForm.get('artwork').setValue(this.files[0]);
       this.pokemonForm.get('sprite').setValue(this.files[1]);
-      this.pokemonForm.get('spriteShiny').setValue(this.files[2]);
-      console.log(this.files)
+      this.pokemonForm.get('spriteshiny').setValue(this.files[2]);
+      console.log(this.files);
+      console.log(this.pokemonForm.value.artwork);
+      console.log(this.pokemonForm.value.sprite);
+      console.log(this.pokemonForm.value.spriteshiny)
     }
+  }
+
+  getTalent1() {
+    return this.talents.filter(p => 
+      p.id !== this.pokemonForm.get('talent2').value &&
+      p.id !== this.pokemonForm.get('talent3').value 
+    )
+  }
+
+  getTalent2() {
+    return this.talents.filter(p => 
+      p.id !== this.pokemonForm.get('talent1').value && 
+      p.id !== this.pokemonForm.get('talent3').value
+    )
+  }
+
+  getTalent3() {
+    return this.talents.filter(p => 
+      p.id !== this.pokemonForm.get('talent1').value && 
+      p.id !== this.pokemonForm.get('talent2').value
+    )
+  }
+
+  getPrevoluton(){
+    return this.pokemons.filter(p => 
+      p.id !== this.pokemonForm.get('evolution').value
+    )
+  }
+
+  getEvoluton(){
+    return this.pokemons.filter(p => 
+      p.id !== this.pokemonForm.get('prevolution').value
+    )
   }
 
   addPokemon(){
     const formData = new FormData();
+    console.log(formData)
     formData.append('artwork', this.pokemonForm.get('artwork').value);
     formData.append('sprite', this.pokemonForm.get('sprite').value);
-    formData.append('spriteShiny', this.pokemonForm.get('spriteShiny').value);
+    formData.append('spriteshiny', this.pokemonForm.get('spriteshiny').value);
     this.http.post<any>(`${this.baseUrl}/pokemons/upload-image`, formData).subscribe(
       (res) => {
         let newPokemon = {
-          number: this.pokemonForm.value.number,
+          numero: this.pokemonForm.value.numero,
           name: this.pokemonForm.value.name,
-          image: res.artwork.name,
           artwork : res.artwork.name,
           sprite : res.sprite.name,
-          spriteShiny : res.spriteShiny.name,
+          spriteshiny : res.spriteshiny.name,
           description : this.pokemonForm.value.description,
           talent1 : this.pokemonForm.value.talent1,
           talent2 : this.pokemonForm.value.talent2,
@@ -98,7 +146,7 @@ export class PokemonCreerComponent implements OnInit {
         (err) => console.log(err)
       }
     );
-    this.pokemonService.getPokemons();
+    // this.pokemonService.getPokemons();
     setTimeout( () => {this.router.navigateByUrl('/pokemon/pokedex')}, 1000);
   }
 
